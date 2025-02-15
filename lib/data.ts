@@ -1,3 +1,5 @@
+
+
 const data ={
     headerMenus: [
         {
@@ -81,7 +83,35 @@ const data ={
         },
 
       ],
-        
+    
+    carousels: [
+        {
+          imageSrc: '/images/banner1.jpg',
+          caption: 'love it',
+          buttonCaption: 'shop now',
+          url: '/search?category=shoes',
+          isPublished: true
+
+        },
+
+        {
+            imageSrc: '/images/banner2.jpg',
+            caption: 'love it alot',
+            buttonCaption: 'shop now',
+            url: '/search?category=T-Shirts',
+            isPublished: true
+  
+        },
+
+        {
+            imageSrc: '/images/banner3.jpg',
+            caption: 'love it more',
+            buttonCaption: 'shop now',
+            url: '/search?category=Wrist Watches',
+            isPublished: true
+
+        },
+    ],
 }
 
 export default data
