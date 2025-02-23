@@ -92,6 +92,7 @@ export default async function HomePage() {
       <div className='p-4 bg-background'>
         <BrowsingHistoryList />
       </div>
+      
     </>
   )
 }
