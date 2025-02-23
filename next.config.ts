@@ -7,7 +7,7 @@ const nextConfig: NextConfig = withNextIntl()({
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'utfs.io',
+        hostname: 'images.unsplash.com',
         port: '',
       },
     ],
