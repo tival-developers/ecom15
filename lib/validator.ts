@@ -35,6 +35,10 @@ export const ProductInputSchema = z.object({
   images: z.array(z.string()).min(1, 'Product must have at least one image'),
   brand: z.string().min(1, 'Brand is required'),
   description: z.string().min(1, 'Description is required'),
+  previousPrice: z.number().optional(), // To track price changes
+  salesCount: z.number().default(0), // To determine best sellers
+  createdAt: z.date(), // For new arrivals
+  isFeatured: z.boolean().default(false), // Admin-controlled featured tag
   isPublished: z.boolean(),
   price: Price('Price'),
   listPrice: Price('List price'),
@@ -149,6 +153,7 @@ export const CartSchema = z.object({
   deliveryDateIndex: z.optional(z.number()),
   expectedDeliveryDate: z.optional(z.date()),
 })
+//products
 
 // USER
 const UserName = z

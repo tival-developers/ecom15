@@ -15,6 +15,14 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useToast } from '@/hooks/use-toast'
@@ -29,12 +37,12 @@ import { IProductInput } from '@/types'
 const productDefaultValues: IProductInput =
   process.env.NODE_ENV === 'development'
     ? {
-        name: 'Sample Product',
-        slug: 'sample-product',
-        category: 'Sample Category',
-        images: ['/images/p11-1.jpg'],
-        brand: 'Sample Brand',
-        description: 'This is a sample description of the product.',
+        name: '',
+        slug: '',
+        category: 'laptops',
+        images: [],
+        brand: '',
+        description: '',
         price: 99.99,
         listPrice: 0,
         countInStock: 15,
@@ -184,9 +192,23 @@ const ProductForm = ({
             render={({ field }) => (
               <FormItem className='w-full'>
                 <FormLabel>Category</FormLabel>
-                <FormControl>
-                  <Input placeholder='Enter category' {...field} />
-                </FormControl>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder='Select a category' />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {['laptops', 'printers', 'phones'].map((category) => (
+                      <SelectItem key={category} value={category}>
+                        {category}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}
@@ -275,6 +297,7 @@ const ProductForm = ({
                       ))}
                       <FormControl>
                         <UploadButton
+                        className='text-red-600'
                           endpoint='imageUploader'
                           onClientUploadComplete={(res: { url: string }[]) => {
                             form.setValue('images', [...images, res[0].url])
@@ -306,7 +329,7 @@ const ProductForm = ({
                 <FormLabel>Description</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder='Tell us a little bit about yourself'
+                    placeholder='Enter product description'
                     className='resize-none'
                     {...field}
                   />

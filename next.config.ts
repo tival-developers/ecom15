@@ -7,6 +7,12 @@ const nextConfig: NextConfig = withNextIntl()({
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'utfs.io',
+        port: '',
+      },
+
+      {
+        protocol: 'https',
         hostname: 'images.unsplash.com',
         port: '',
       },
@@ -15,3 +21,16 @@ const nextConfig: NextConfig = withNextIntl()({
 })
 
 export default nextConfig
+{
+  /*
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'utfs.io',
+        port: '',
+      },
+    ],
+  },
+  */ 
+}

@@ -24,7 +24,7 @@ export default function Footer() {
   const locale = useLocale()
   const t = useTranslations()
   return (
-    <footer className='bg-black  text-white underline-link'>
+    <footer className='bg-black underline-link'>
       <div className='w-full'>
         <Button
           variant='ghost'
@@ -36,56 +36,59 @@ export default function Footer() {
         </Button>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 p-6 max-w-7xl mx-auto'>
           <div>
-            <h3 className='font-bold mb-2'>{t('Footer.Get to Know Us')}</h3>
+            <h3 className='font-medium text-white text-lg mb-2'>{t('Footer.Get to Know Us')}</h3>
             <ul className='space-y-2'>
               <li>
-                <Link href='/page/careers'>{t('Footer.Careers')}</Link>
+                <Link href='/page/careers' className='text-slate-400'
+                >{t('Footer.Careers')}</Link>
               </li>
               <li>
-                <Link href='/page/blog'>{t('Footer.Blog')}</Link>
+                <Link href='/page/blog'className='text-slate-400'>{t('Footer.Blog')}</Link>
               </li>
               <li>
-                <Link href='/page/about-us'>
+                <Link href='/page/about-us'className='text-slate-400'>
                   {t('Footer.About name', { name: site.name })}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className='font-bold mb-2'>{t('Footer.Make Money with Us')}</h3>
+            <h3 className='font-medium text-white text-lg mb-2'>{t('Footer.Make Money with Us')}</h3>
             <ul className='space-y-2'>
               <li>
-                <Link href='/page/sell'>
+                <Link href='/page/sell'className='text-slate-400'>
                   {t('Footer.Sell products on', { name: site.name })}
                 </Link>
               </li>
               <li>
-                <Link href='/page/become-affiliate'>
+                <Link href='/page/become-affiliate'className='text-slate-400'>
                   {t('Footer.Become an Affiliate')}
                 </Link>
               </li>
               <li>
-                <Link href='/page/advertise'>
+                <Link href='/page/advertise'className='text-slate-400'>
                   {t('Footer.Advertise Your Products')}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className='font-bold mb-2'>{t('Footer.Let Us Help You')}</h3>
+            <h3 className='font-medium text-white text-lg mb-2'>{t('Footer.Let Us Help You')}</h3>
             <ul className='space-y-2'>
               <li>
-                <Link href='/page/shipping'>
+                <Link href='/page/shipping'
+                className='text-slate-400'
+                >
                   {t('Footer.Shipping Rates & Policies')}
                 </Link>
               </li>
               <li>
-                <Link href='/page/returns-policy'>
+                <Link href='/page/returns-policy'className='text-slate-400'>
                   {t('Footer.Returns & Replacements')}
                 </Link>
               </li>
               <li>
-                <Link href='/page/help'>{t('Footer.Help')}</Link>
+                <Link href='/page/help'className='text-slate-400'>{t('Footer.Help')}</Link>
               </li>
             </ul>
           </div>

@@ -160,13 +160,19 @@ export async function getProductsByTag({
   limit?: number
 }) {
   await connectToDatabase()
-  const products = await Product.find({
+  const products = await Product.find(
+    {
     tags: { $in: [tag] },
     isPublished: true,
-  })
+    
+    }
+    
+  )
     .sort({ createdAt: 'desc' })
     .limit(limit)
-  return JSON.parse(JSON.stringify(products)) as IProduct[]
+    .lean()
+    return products
+  //return JSON.parse(JSON.stringify(products)) as IProduct[]
 }
 
 // GET ONE PRODUCT BY SLUG
